@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AppTarefaListComponent } from './app.tarefa.list'; // Import the Comment interface
 
@@ -13,5 +13,10 @@ constructor(private http: HttpClient) {}
 
 getTarefas(): Observable<AppTarefaListComponent[]> {
  return this.http.get<AppTarefaListComponent[]>(`${this.baseUrl}/listar`);
+ }
+
+ 
+getTestePost(params: any): Observable<AppTarefaListComponent[]> {
+    return this.http.post<AppTarefaListComponent[]>(`${this.baseUrl}/teste_post`, params);
  }
 }

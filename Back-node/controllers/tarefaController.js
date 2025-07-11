@@ -7,6 +7,15 @@ const listarTarefas = (req, res) => {
   res.json('TESTE DEU CERTO CARALHO'); // Retorna a lista de tarefas como JSON
 };
 
+//teste post
+const testePost = (req, res) => {
+  const { descricao } = req; // Obtém a descrição da nova tarefa do corpo da requisição
+  const novaTarefa = { id: tarefas.length + 1, descricao }; // Cria um objeto representando a nova tarefa
+  tarefas.push(novaTarefa); // Adiciona a nova tarefa à lista de tarefas
+  res.status(201).json('VAMOooo'); // Retorna a nova tarefa como JSON, com o status 201 (Created)
+};
+
+
 // Função para criar uma nova tarefa
 const criarTarefa = (req, res) => {
   const { descricao } = req.body; // Obtém a descrição da nova tarefa do corpo da requisição
@@ -41,4 +50,4 @@ const excluirTarefa = (req, res) => {
 };
 
 // Exportando os controladores para serem utilizados em outros arquivos
-module.exports = { listarTarefas, criarTarefa, atualizarTarefa, excluirTarefa };
+module.exports = { listarTarefas, testePost, criarTarefa, atualizarTarefa, excluirTarefa };
